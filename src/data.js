@@ -23,7 +23,7 @@ module.exports = async function(dataPath, opts) {
 		if (hasData === false) return {}
 
 		const mustRequire = typeof opts.data === 'string'
-		if (mustRequire === true) return requireData(path.resolve(opts.data), continuousStealthyRequire)
+		if (mustRequire === true) return await requireData(path.resolve(opts.data), continuousStealthyRequire)
 
 		return opts.data
 
@@ -37,7 +37,7 @@ module.exports = async function(dataPath, opts) {
 		const hasData = dataPath != null
 		if (hasData === false) return {}
 
-		return requireData(dataPath, continuousStealthyRequire)
+		return await requireData(dataPath, continuousStealthyRequire)
 
 	})()
 
